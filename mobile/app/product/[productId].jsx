@@ -58,7 +58,6 @@ const ProductView = () => {
         }, true);
 
     }
-
     if (!product) return null
     return (
         <SafeAreaView className='bg-white h-full p-3'>

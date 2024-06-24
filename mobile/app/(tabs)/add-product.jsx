@@ -44,9 +44,8 @@ const AddProduct = () => {
 
     return (
         <SafeAreaView className='p-3 px-5 h-full justify-center'>
-            <View>
-                <Text className='text-xl font-rubiksemibold text-gray-800'>Add Product</Text>
-                <Text className='text-gray-600 text-base'>Fill in the form below to add a new product</Text>
+            <View className="items-center">
+                <Text className='text-xl font-rubiksemibold text-purple-800'>Add Product</Text>
             </View>
             <View className='mb-5 mt-8'>
                 <CustomInput
@@ -78,7 +77,7 @@ const AddProduct = () => {
                 title='Add Product'
                 handlePress={handleSubmit}
                 isLoading={creatingProduct}
-                containerStyles='mt-8'
+                containerStyles='mt-8 '
             />
         </SafeAreaView>
     )
