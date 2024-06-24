@@ -18,15 +18,11 @@ const Onboarding = () => {
                 }}
             >
                 <View className='h-full items-center justify-center px-6 font-rubik'>
-                    <Image
-                        source={require("../assets/images/welcome.png")}
-                        resizeMode='contain'
-                        className='w-[240px] h-[240px]'
-                    />
-                    <Text className='text-2xl font-bold font-rubik'>Welcome to our app</Text>
+                    
+                    <Text className='text-xl font-bold font-rubik'> WELCOME</Text>
                     {user?
                         <Text className='text-center text-lg text-gray-500 py-4 '>
-                        Already logged in as <Text className=' font-semibold text-cyan-600'>{user?.name}</Text>
+                        Already logged in as <Text className=' font-semibold text-purple-600'>{user?.name}</Text>
                     </Text>:
                     <Text className='text-center text-lg text-gray-500 py-4 '>
                         Login or create an account to get started

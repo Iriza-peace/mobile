@@ -5,7 +5,6 @@ import { useRouter } from 'expo-router';
 import { FlatList, Image, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-
 export default function HomeScreen() {
   const { user } = useAuth();
   const { products } = useProducts();
@@ -18,7 +17,8 @@ export default function HomeScreen() {
       <FlatList
         data={products}
         ListEmptyComponent={() => (
-          <View className='h-full justify-center items-center bg-gray-50 rounded-lg'>
+          // <View className='h-full justify-center items-center bg-gray-50 rounded-lg'>
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F9FAFB', borderRadius: 8 }}>
             <Image
               source={require('../../assets/images/no-data.png')}
               style={{ width: 200, height: 200 }}
@@ -32,7 +32,7 @@ export default function HomeScreen() {
           <View className='p-3  rounded-lg mb-3 border border-gray-200 shadow-sm'>
             <Text className='text-lg font-semibold'>{item.name}</Text>
             <Text className='text-base text-gray-500 mb-3'>{item.description}</Text>
-            <Text className='text-base text-cyan-800'>${item.price}</Text>
+            <Text className='text-base text-purple-800'>${item.price}</Text>
             <CustomButton
               handlePress={() => router.push(`/product/${item.id}`)}
               title='View'
@@ -44,8 +44,8 @@ export default function HomeScreen() {
         )}
         ListHeaderComponent={() => (
           <View className='mb-6'>
-            <Text className='text-xl text-gray-800 font-rubiksemibold'>Welcome, {user?.name}</Text>
-            <Text className='text-gray-500 text-base'>Here are  the products you have created</Text>
+            <Text className='text-sm text-gray-800 font-rubiksemibold'>Welcome, {user?.name}</Text>
+            <Text className='text-purple-500 text-base'>Here are  the products you have created</Text>
           </View>
         )}
       />

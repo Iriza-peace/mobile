@@ -36,8 +36,7 @@ const Login = () => {
     return (
         <SafeAreaView>
             <View className='h-full  justify-center px-6'>
-                <Text className='text-2xl font-semibold'>Login to your account</Text>
-                <Text className='text-gray-500 text-base'>Enter your email and password below</Text>
+                <Text className='text-2xl font-semibold text-center text-purple-500'>LOGIN</Text>
                 <View className='w-full mt-10'>
                     <CustomInput
                         label='Email'
@@ -60,7 +59,7 @@ const Login = () => {
                 <View className='flex flex-row gap-1 mt-3'>
                     <Text className='text-base'>Don't have an account?</Text>
                     <Link href={'/signup'}>
-                        <Text className='text-cyan-600 text-base'>signup</Text>
+                        <Text className='text-purple-600 text-base'>signup</Text>
                     </Link>
                 </View>
             </View>
