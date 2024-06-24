@@ -11,7 +11,7 @@ async function createUser(req, res) {
 
         const existingUser = await prisma.user.findUnique({
             where: {
-                email: user.email
+                email: user.e
             },
         });
         if (existingUser) {

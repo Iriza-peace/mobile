@@ -3,6 +3,7 @@ const { verifyToken } = require("../utils/jwt");
 const isAuthenticated = (req, res, next) => {
     const authorization = req.headers.authorization;
     const token = authorization?.split(" ")[1];
+    console.log(token)
 
     // check if token is valid
     if (!token) {
@@ -17,7 +18,7 @@ const isAuthenticated = (req, res, next) => {
         return res.status(401).json({ message: "Unauthorized" });
     }
     // attach payload(userId) to request object
-    req.user = payload;
+    req.user = payload.user;  
     next();
 };
 

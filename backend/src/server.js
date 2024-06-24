@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const userRouter = require("./modules/users/usersRouter");
 const isAuthenticated = require("./middlewares/auth")
-const productsRouter = require("./modules/products/productsRouter")
+const postsRouter = require("./modules/posts/postsRouter");
+const commentsRouter = require("./modules/comments/commentsRouter");
 
 const PORT = process.env.PORT || 8000;
 
@@ -35,7 +36,9 @@ app.use((req, res, next) => {
 });
 
 app.use("/users", userRouter);
-app.use("/products", isAuthenticated, productsRouter);
+app.use("/posts", isAuthenticated, postsRouter);
+app.use("/comments", isAuthenticated, commentsRouter);
+
 app.get("/", (req, res) => {
     res.send("Hello world");
 });

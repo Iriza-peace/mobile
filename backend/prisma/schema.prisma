@@ -8,24 +8,30 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(cuid())
-  email     String    @unique
+  id        String   @id @default(cuid())
+  email     String   @unique
   name      String
   password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Posts     Posts[]
+}
+
+model Posts {
+  id        String    @id @default(cuid())
+  title     String
+  content   String
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  Product   Product[]
+  userId    String
+  author    User     @relation(fields: [id], references: [id])
+  Comment   Comment[]
 }
 
-
-model Product {
-  id          String   @id @default(cuid())
-  name        String
-  description String
-  price       Float
-  createdBy   User     @relation(fields: [userId], references: [id])
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  userId      String
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  createdAt DateTime @default(now())
+  post      Posts    @relation(fields: [postId], references: [id])
+  postId    String
 }
-
